@@ -4,7 +4,8 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "CTO, Arquiteto e Estrategista de Produto" } = Astro.props;
+const { title, description = "Carlos Gonser: CTO e empreendedor com mais de 20 anos em arquitetura de software, produtos digitais, gestão de riscos e IA aplicada." } = Astro.props;
+const canonical = new URL(Astro.url.pathname, 'https://gonser.com.br');
 ---
 
 <!doctype html>
@@ -13,6 +14,14 @@ const { title, description = "CTO, Arquiteto e Estrategista de Produto" } = Astr
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://gonser.com.br/carlos-gonser.jpg" />
+    <meta property="og:image:alt" content="Carlos Gonser" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

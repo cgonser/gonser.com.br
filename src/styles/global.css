@@ -43,6 +43,9 @@
 
 /* Dark Theme */
 [data-theme="dark"] {
+  --primary: #5ec4cb;
+  --primary-light: #7ed4d9;
+  --gradient-primary: linear-gradient(135deg, rgb(15, 98, 106) 0%, var(--primary-dark) 100%);
   --bg: #0f172a;
   --bg-alt: #1e293b;
   --bg-card: #1e293b;
@@ -105,6 +108,13 @@ img {
 
 section {
   padding: var(--section-padding) 0;
+  scroll-margin-top: 72px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
 }
 
 /* ============================================
@@ -479,15 +489,6 @@ nav {
   color: inherit;
 }
 
-.venture-card-soon {
-  opacity: 0.7;
-}
-
-.venture-card-soon:hover {
-  transform: none;
-  box-shadow: none;
-}
-
 .venture-logo {
   height: 48px;
   width: auto;
@@ -497,11 +498,29 @@ nav {
 }
 
 .venture-logo-light {
+  filter: brightness(0);
+}
+
+[data-theme="dark"] .venture-logo-light,
+[data-theme="dark"] .venture-logo-eznfe {
   filter: brightness(0) invert(1);
 }
 
-[data-theme="light"] .venture-logo-light {
-  filter: none;
+.venture-logo-dextra-light,
+.venture-logo-dextra-dark {
+  width: 160px;
+}
+
+.venture-logo-dextra-dark {
+  display: none;
+}
+
+[data-theme="dark"] .venture-logo-dextra-light {
+  display: none;
+}
+
+[data-theme="dark"] .venture-logo-dextra-dark {
+  display: inline-block;
 }
 
 .venture-logo-text {
@@ -527,14 +546,6 @@ nav {
   color: var(--text-light);
   font-size: 0.95rem;
   margin-bottom: 0;
-}
-
-.venture-soon {
-  display: inline-block;
-  margin-top: 16px;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-style: italic;
 }
 
 /* Consulting Note */
